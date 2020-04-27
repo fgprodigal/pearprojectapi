@@ -4,10 +4,7 @@ FROM php:7.1.31-apache
 ENV PHPREDIS_VERSION 5.0.2
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz && \
     apt-get update && \
-    apt-get install -y && \
-     libzip-dev \
-     zip \
-     git && \
+    apt-get install -y libzip-dev zip git && \
     tar xfz /tmp/redis.tar.gz && \
     rm -r /tmp/redis.tar.gz && \
     mkdir -p /usr/src/php/ext && \
