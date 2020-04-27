@@ -3,8 +3,8 @@ FROM php:7.1.31-apache
 #添加redis
 ENV PHPREDIS_VERSION 5.0.2
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz && \
-    apt-get -o update && \
-    apt-get -o install -y && \
+    apt-get update && \
+    apt-get install -y && \
      libzip-dev \
      zip \
      git && \
