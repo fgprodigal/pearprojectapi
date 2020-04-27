@@ -23,6 +23,4 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     sed -i "s/127.0.0.1/redis/g" /var/www/html/pearProjectApi/config/cache.php && \
     sed -i "s/127.0.0.1/db/g" /var/www/html/pearProjectApi/config/database.php && \
     sed -i "13s/root/jsjglzx188/g" /var/www/html/pearProjectApi/config/database.php && \
-    sed -i "3s/false/true/g" /var/www/html/pearProjectApi/config/config.php && \
-    sed -i "s/192.168.0.159/192.168.169.188/g" /var/www/html/pearProjectApi/application/common/Plugins/GateWayWorker/config.php && \
     rm -rf vendor.zip
