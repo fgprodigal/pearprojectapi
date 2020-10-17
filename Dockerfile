@@ -21,12 +21,12 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     mkdir /var/www/html/pearProjectApi && \
     git clone https://github.com/a54552239/pearProjectApi.git /var/www/html/pearProjectApi && \
     mv /.env /var/www/html/pearProjectApi && \
+    mv /entrypoint.sh /var/www/html/pearProjectApi && \
     curl -o vendor.zip https://vilson-static.oss-cn-shenzhen.aliyuncs.com/common/vendor.zip && \
     unzip vendor.zip -d /var/www/html/pearProjectApi && \
     chown -R www-data:www-data /var/www/html/pearProjectApi && \
     chmod +x /var/www/html/pearProjectApi/*.sh && \
     sed -i "s/192.168.0.159/0.0.0.0/g" /var/www/html/pearProjectApi/application/common/Plugins/GateWayWorker/config.php && \
-    chmod +x /entrypoint.sh && \
     rm -rf vendor.zip
 
-CMD ["/entrypoint.sh"]
+CMD ["entrypoint.sh"]
