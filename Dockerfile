@@ -4,6 +4,7 @@ FROM php:7.1.31-apache
 ENV PHPREDIS_VERSION 5.0.2
 
 COPY .env /
+COPY entrypoint.sh /
 
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz && \
     apt-get update && \
@@ -23,4 +24,9 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     curl -o vendor.zip https://vilson-static.oss-cn-shenzhen.aliyuncs.com/common/vendor.zip && \
     unzip vendor.zip -d /var/www/html/pearProjectApi && \
     chown -R www-data:www-data /var/www/html/pearProjectApi && \
+    chmod +x /var/www/html/pearProjectApi/*.sh && \
+    sed -i "s/192.168.0.159/0.0.0.0/g" /var/www/html/pearProjectApi/application/common/Plugins/GateWayWorker/config.php && \
+    chmod +x /entrypoint.sh && \
     rm -rf vendor.zip
+
+CMD ["/entrypoint.sh"]
