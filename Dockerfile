@@ -12,7 +12,7 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     rm -r /tmp/redis.tar.gz && \
     mkdir -p /usr/src/php/ext && \
     mv phpredis-$PHPREDIS_VERSION /usr/src/php/ext/redis && \
-    docker-php-ext-install redis mysqli pdo_mysql && \
+    docker-php-ext-install redis mysqli pdo_mysql pcntl && \
     docker-php-ext-configure zip --with-libzip && \
     docker-php-ext-install zip && \
     rm -rf /usr/src/phpG && \
