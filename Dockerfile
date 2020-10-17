@@ -19,8 +19,6 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     curl -o vendor.zip https://vilson-static.oss-cn-shenzhen.aliyuncs.com/common/vendor.zip && \
     unzip vendor.zip -d /var/www/html/pearProjectApi && \
     chown -R www-data:www-data /var/www/html/pearProjectApi && \
-    sed -i "s/127.0.0.1/redis/g" /var/www/html/pearProjectApi/config/session.php && \
-    sed -i "s/127.0.0.1/redis/g" /var/www/html/pearProjectApi/config/cache.php && \
-    sed -i "s/127.0.0.1/db/g" /var/www/html/pearProjectApi/config/database.php && \
-    sed -i "13s/root/jsjglzx188/g" /var/www/html/pearProjectApi/config/database.php && \
     rm -rf vendor.zip
+    
+COPY .env /var/www/html/pearProjectApi
