@@ -23,6 +23,7 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     mv /.env /var/www/html/pearProjectApi && \
     curl -o vendor.zip https://vilson-static.oss-cn-shenzhen.aliyuncs.com/common/vendor.zip && \
     unzip vendor.zip -d /var/www/html/pearProjectApi && \
+    touch /var/www/html/pearProjectApi/data/install.lock && \
     chown -R www-data:www-data /var/www/html/pearProjectApi && \
     chmod +x /var/www/html/pearProjectApi/*.sh && \
     chmod +x /entrypoint.sh && \
