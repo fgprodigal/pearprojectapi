@@ -29,4 +29,6 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     sed -i "s/192.168.0.159/0.0.0.0/g" /var/www/html/pearProjectApi/application/common/Plugins/GateWayWorker/config.php && \
     rm -rf vendor.zip
 
+WORKDIR /var/www/html/pearProjectApi
+
 CMD ["entrypoint.sh"]
