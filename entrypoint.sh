@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /var/www/html/pearProjectApi/
-start.sh &
+./start.sh &
 apache2-foreground
